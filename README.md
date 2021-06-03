@@ -6,13 +6,13 @@ This repo will be a collection of my experiments with some unique features and c
 
 #### All these experiments appear best when your device is in dark theme
 
-### 1. 🌌 Night Sky
+### 1. 🌌 [Night Sky](app/src/main/java/com/k2/composeplayground/ui/NightSky.kt)
 
 Dark sky with twinkling stars
 
 ![Night Sky](media/night_sky.gif)
 
-### 2. 〰️ Sine waves
+### 2. 〰️ [Sine waves](app/src/main/java/com/k2/composeplayground/ui/Waves.kt)
 
 Colourful sine wave pattern
 
