@@ -25,12 +25,12 @@ private var spacing = 24
 private var boxHeight = 0
 
 val colors = listOf(
-    Color(0xFFD03C91),
-    Color(0xFF892C3C),
-    Color(0xFF763262),
-    Color(0xFF392EC4),
-    Color(0xFF394AAB),
-    Color(0xFF4760C0),
+    Color(0xFF9D2946),
+    Color(0xFFA54347),
+    Color(0xFFC9885C),
+    Color(0xFFF0C46C),
+    Color(0xFF95C54E),
+    Color(0xFF82AD8A),
 )
 
 val colorsEdge = listOf(
@@ -61,12 +61,12 @@ val colorsCenter = listOf(
 )
 
 val colorsAdjacent = listOf(
-    Color(0xFF3A33CA),
-    Color(0xFF44499C),
-    Color(0xFF486C8E),
-    Color(0xFF6EB089),
-    Color(0xFF7BAD7A),
-    Color(0xFFB8C875),
+    Color(0xFF2C32B3),
+    Color(0xFF466EA2),
+    Color(0xFF4C7E82),
+    Color(0xFF578C7A),
+    Color(0xFF7CA568),
+    Color(0xFFB4C557),
 )
 
 val yPoints = mutableListOf<Float>()
@@ -104,7 +104,7 @@ fun Waves(modifier: Modifier = Modifier) {
             populateYPoints(size.center.y)
         }
         for ((index, y) in yPoints.withIndex()) {
-            start = spacing
+            start = spacing / 2
             end = start + boxWidth
             for (step in 1..hSteps) {
                 val waveColors = getColorList(step, index + 1)
@@ -168,11 +168,6 @@ fun getColorList(xIndex: Int, yIndex: Int): List<Color> {
         && (yIndex.adjacentToMiddleOf(vSteps) || yIndex.isMiddleOf(vSteps))
     ) {
         colorsAdjacent
-    } else if (
-        (xIndex.adjacentToMiddleOf(hSteps) || xIndex.isMiddleOf(hSteps))
-        && (yIndex.adjacentToMiddleOf(vSteps) || yIndex.isMiddleOf(vSteps))
-    ) {
-        colorsBorders
     } else {
         colors
     }

@@ -6,6 +6,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -30,7 +31,7 @@ fun NightSky(
     val baseColor = if (isSystemInDarkTheme()) Color.White else Color.Black
 
     val infiniteColorTransition = rememberInfiniteTransition()
-    val moonColor = infiniteColorTransition.animateColor(
+    val moonColor by infiniteColorTransition.animateColor(
         initialValue = baseColor,
         targetValue = if (isSystemInDarkTheme()) Color(0xFFDDDDCC) else Color.DarkGray,
         animationSpec = infiniteRepeatable(
@@ -88,7 +89,7 @@ fun NightSky(
         }
         if (showMoon) {
             drawCircle(
-                color = moonColor.value,
+                color = moonColor,
                 radius = moonSize,
                 center = moonOffset,
             )
